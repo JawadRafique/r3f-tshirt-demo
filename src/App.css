@@ -1,38 +1,100 @@
-.App {
-  text-align: center;
+html,
+body #root,
+Canvas {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    min-height: 100vh;
+    min-width: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+    min-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.left,
+.right {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.left {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.left > .center {
+    padding-block: 2rem;
+}
+.left > .center > .color-selector {
+    margin-left: 2rem;
 }
 
-.App-link {
-  color: #61dafb;
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.color-selector {
+    display: inline-block;
+    margin: 0 auto;
+    border-radius: 3px;
+    position: relative;
+    padding: 6px 32px 6px 10px;
+    font-family: verdana;
+    background: rgb(179, 170, 170);
+    min-width: 125px;
+}
+
+.circle {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid #eee;
+    margin-right: 10px;
+}
+
+.color-selector::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 5px 0 5px;
+    border-color: black transparent transparent transparent;
+    position: absolute;
+    right: 10px;
+    top: 17px;
+}
+
+span {
+    display: inline-block;
+    vertical-align: middle;
+}
+.hidden {
+    position: absolute;
+    left: 0;
+    opacity: 0;
+}
+
+@media screen and (max-width: 788px) {
+    .container {
+        flex-direction: column-reverse;
+    }
+    .left,
+    .right {
+        width: 100%;
+    }
+    Canvas {
+        height: auto;
+    }
 }
